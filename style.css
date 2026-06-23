@@ -1,94 +1,96 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&display=swap');
+
+:root {
+    --cor-de-fundo: #1E1E1E;
+    --verde: #6FFF57;
+    --branco: #FFFFFF;
+    --botao-ativo: #3A375E;
+    --botao-inativo: rgba(58, 55, 94, 0.5);
+    --texto-fundo: rgba(58, 55, 94, 0.3);
 }
 
 body {
-    /* Cor de fundo azul extraída da sua imagem */
-    background-color: #6FDCEF; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    overflow: hidden;
+    background-color: var(--cor-de-fundo);
+    color: var(--branco);
+    font-family: 'Chakra Petch', sans-serif;
 }
 
-.banner {
+.conteudo-principal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.titulo-principal {
+    text-align: left;
+    width: 100%;
+    font-size: 32px;
+}
+
+.titulo-principal span {
+    color: var(--verde);
+}
+
+.botao {
+    font-family: "Chakra Petch", sans-serif;
+    background-color: var(--botao-inativo);
+    color: var(--branco);
+    display: flex;
+    justify-content: center;
+    padding: 1em;
+    font-size: 18px;
+    align-items: center;
+    width: 100%;
+    border-bottom: 4px solid var(--botao-ativo);
+    border-left: 2px solid var(--botao-ativo);
+    border-right: 2px solid var(--botao-ativo);
+    border-top: none;
+}
+
+.ativo {
+    background-color: var(--botao-ativo);
+    border-bottom: 4px solid var(--verde);
+}
+
+.abas-textos {
+    background-color: var(--texto-fundo);
+    padding: 40px;
+    border-radius: 0 0 40px 40px;
+}
+
+/* Esconde todas as abas por padrão */
+.aba-conteudo {
+    display: none;
+}
+
+/* Mostra apenas a aba que tiver a classe ativo */
+.aba-conteudo.ativo {
+    display: block;
+}
+
+.aba-conteudo-titulo-principal {
+    font-size: 28px;
     text-align: center;
-    color: #153a4d; /* Azul escuro para contraste */
 }
 
-.titulo {
-    font-size: 3.5rem;
-    font-weight: bold;
-    line-height: 0.9;
-    margin-bottom: 30px;
+.aba-conteudo-titulo-secundario {
+    text-align: center;
+    color: var(--verde);
+    text-transform: uppercase;
 }
 
-/* Container da Imagem */
-.container-imagem {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-.moldura-imagem {
-    position: relative;
-    width: 400px;
-    height: 250px;
-    background-color: #fff;
-    border: 3px solid #153a4d;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.microondas {
-    width: 90%;
-    z-index: 1;
-}
-
-/* Posicionando a lata e o gelo por cima do micro-ondas */
-.lata {
-    position: absolute;
-    width: 80px;
-    left: 20px;
-    bottom: 50px;
-    z-index: 2;
-}
-
-.gelo {
-    position: absolute;
-    width: 150px;
-    left: 10px;
-    bottom: 10px;
-    z-index: 3;
-}
-
-.frase {
-    font-size: 1.8rem;
-    font-weight: 600;
-    line-height: 1.1;
-    margin-bottom: 20px;
-}
-
-.venda p {
-    font-size: 1.4rem;
-    font-weight: bold;
-}
-
-.telefone {
-    font-size: 1.4rem;
-    color: inherit;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-/* Responsividade para telas pequenas */
-@media (max-width: 500px) {
-    .titulo { font-size: 2.5rem; }
-    .moldura-imagem { width: 300px; height: 180px; }
-    .frase { font-size: 1.3rem; }
+@media screen and (min-width:768px) {
+    .botoes {
+        display: flex;
+    }
+    .botao:first-child {
+        border-radius: 40px 0 0 0;
+    }
+    .botao:last-child {
+        border-radius: 0 40px 0 0;
+    }
 }
